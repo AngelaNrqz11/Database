@@ -1,0 +1,15 @@
+{
+  "name": "databases",
+  "version": "1.0.0",
+  "description": "Using MongoDB Native Driver",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Angela Anne Enriquez",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.1.1",
+    "mongoose": "^5.13.8"
+  }
+}

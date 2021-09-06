@@ -1,0 +1,42 @@
+<!-- EJS Layouts -->
+<%- include("header") -%>
+
+<body>
+    <div class="box">
+        <h1 id="heading"><%= listTitle %></h1>
+    </div>
+
+    <div class="box">
+        <% listItem.forEach(element => { %>
+
+        <form action="/delete" method="post">
+            <div class="item">
+                <input
+                    type="checkbox"
+                    name="checkItem"
+                    onChange="this.form.submit()"
+                    value="<%=element._id%>"
+                    class="item"
+                />
+                <p><%= element.name %></p>
+            </div>
+            <input type="hidden" name="listName" value="<%= element.name %>">
+        </form>
+
+        <% }); %>
+
+        <form class="item" action="/" method="post">
+            <input
+                type="text"
+                name="todo"
+                placeholder="Add Item"
+                autocomplete="off"
+            />
+            <!-- prettier-ignore -->
+            <button type="submit" name="list" value=<%= listTitle %>>+</button>
+        </form>
+    </div>
+
+    <!-- EJS Layouts -->
+    <%- include("footer") -%>
+</body>
