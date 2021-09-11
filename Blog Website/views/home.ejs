@@ -1,0 +1,19 @@
+<%- include("partials/header"); -%>
+
+<h1>Home</h1>
+<p><%= homeContent %></p>
+
+<% content.forEach(element => { %>
+<h1><%= element.blogTitle %></h1>
+<p>
+    <%= element.blogBody.substring(0, 100) %> ...
+    <a href="/posts/<%=element._id%>">Read More</a>
+</p>
+<% }); %>
+
+<form action="/compose" method="GET">
+    <button class="composeButton">+</button>
+</form>
+
+<!-- footer -->
+<%- include("partials/footer"); -%>
