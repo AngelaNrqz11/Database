@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // then you can refer to your static files using this relative "public" folder.
 app.use(express.static("public"));
 
-// CONNECT TO MONGODB USING MONGOOSE
-mongoose.connect("mongodb://localhost:27017/ToDoListDB", {
+// CONNECT TO MONGODB ATLAS SERVER
+mongoose.connect("mongodb+srv://admin-angela:test1234@cluster0.zoms6.mongodb.net/ToDoListDB", {
     useNewUrlParser: true,
 });
 
@@ -161,6 +161,12 @@ app.get("/:customListName", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log("Listening to port 3000.");
+//Listening to the correct port locally/heroku
+let port = process.env.PORT;
+if (port === null || port === "") {
+  port = 3000;
+}
+
+app.listen(port, () => {
+    console.log("Successfully connected. Listening to port ", port);
 });
